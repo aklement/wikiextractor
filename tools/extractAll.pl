@@ -22,7 +22,7 @@ while(<LANG>){
 }
 
 my $len = $#lang + 1;
-my $en = "en";
+my $en = "af";
 my $curdir = "";
 
 for (my $i = 0; $i < $len; $i++) {
@@ -31,6 +31,6 @@ for (my $i = 0; $i < $len; $i++) {
 
     $curdir = "$out_dir/pages/$lang[$i]";
 
-    system("mkdir $curdir");
+    system("mkdir -p $curdir");
     system("nohup nice bash ./extract.sh $lang[$i] $en $dumps_dir $curdir &> $curdir/$lang[$i].out &");
 }
