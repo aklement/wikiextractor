@@ -25,6 +25,6 @@ system("mkdir $dumps_dir");
 
 for (my $i = 0; $i < $len; $i++) {
 	print "Downloading $lang[$i] wiki to $dumps_dir ...\n";
-	system("nohup nice wget http://download.wikimedia.org/$lang[$i]wiki/latest/$lang[$i]wiki-latest-pages-articles.xml.bz2 -o $lang[$i].log &");
+	system("nohup nice wget http://dumps.wikimedia.org/$lang[$i]wiki/latest/$lang[$i]wiki-latest-pages-articles.xml.bz2 -o $lang[$i].log &");
 	system("mv $lang[$i]wiki-latest-pages-articles.xml.bz2 $dumps_dir");
 }
