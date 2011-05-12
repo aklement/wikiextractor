@@ -4,9 +4,11 @@ use strict;
 use List::Util qw[min max];
 
 my $langfile = $ARGV[0];
+my $dumps_dir = $ARGV[1];
+my $out_dir = $ARGV[2];
 
-die("syntax: extractAll.pl language_file") 
-    unless defined $langfile;
+die("syntax: extractAll.pl language_file dumps_dir out_dir") 
+    unless defined $langfile && defined $dumps_dir && defined $out_dir;
 
 open(LANG, $langfile);
 
@@ -21,16 +23,14 @@ while(<LANG>){
 
 my $len = $#lang + 1;
 my $en = "en";
-my $wikidir = "/mnt/data/wiki";
-my $dumpsdir = "$wikidir/dumps";
-my $outdir = "";
+my $curdir = "";
 
 for (my $i = 0; $i < $len; $i++) {
 
     print "Starting extraction for $lang[$i].\n";
 
-    $outdir = "$wikidir/pages/$lang[$i]";
+    $curdir = "$out_dir/pages/$lang[$i]";
 
-    system("mkdir $outdir");
-    system("nohup nice bash ./extract.sh $lang[$i] $en $dumpsdir $outdir &> $outdir/$lang[$i].out &");
+    system("mkdir $curdir");
+    system("nohup nice bash ./extract.sh $lang[$i] $en $dumps_dir $curdir &> $curdir/$lang[$i].out &");
 }
