@@ -1,3 +1,6 @@
+This project contains some code and scripts to extract plain text pairs of 
+linked wikipedia articles in English and L2.
+
 1. Get wikipedia dumps from wikimedia.org:
 
   * Download (tools/download.pl) and unzip (tools/unzip.pl) wikipedia dumps
@@ -9,7 +12,7 @@
     ../lib/wikiextractor.jar.
    
   * Extract plain text pages (extractAll.pl) for a set of languages.  Pages are
-    extracted if they have inter-language lints to corresponding pages in 
+    extracted if they have inter-language links to corresponding pages in 
     English.  Filenames are the names of the corresponding English articles
     (both plain text articles and original markup are saved).
 
