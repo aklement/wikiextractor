@@ -23,7 +23,7 @@ foreach $dir (@dirs) {
 
   if ((-d $curone) && (-d $curtwo) && (!($letter eq '.'))) {
     $curout = "$outpath/$letter";
-    system "mkdir $curout";
+    system "mkdir -p $curout";
     system "perl ./findpairs.pl $langone $langtwo $pagepath $letter $curout";
   }
 }

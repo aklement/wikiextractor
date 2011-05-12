@@ -16,7 +16,7 @@
   * Pair up the articles in English and L2 (allpairs.pl), saving names of the
   	pairs in list.txt.
 
-E.g.
+E.g. (for en-es):
 
 cd tools
 perl download.pl languages dumps
@@ -25,4 +25,5 @@ perl unzip.pl languages dumps
 bash build.sh
 perl extractAll.pl languages dumps out
 
-perl allpairs.pl en es out/pages out/pagepairs/en-es/pairs &> out/pagepairs/en-es/logs/getpairs.log
+mkdir -p out/pagepairs/logs
+perl allpairs.pl en es out/pages out/pagepairs/en-es/pairs &> out/pagepairs/logs/en-es.pairs.log
