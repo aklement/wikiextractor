@@ -6,7 +6,7 @@ use List::Util qw[min max];
 my $langfile = $ARGV[0];
 my $dumps_dir = $ARGV[1];
 
-die("syntax: unzip.pl language_file") 
+die("syntax: unzip.pl language_file dumps_dir") 
     unless defined $langfile && defined $dumps_dir;
 
 open(LANG, $langfile);
