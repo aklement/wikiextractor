@@ -1,0 +1,28 @@
+1. Get wikipedia dumps from wikimedia.org:
+
+  * Download (tools/download.pl) and unzip (tools/unzip.pl) wikipedia dumps
+    for a set of languages.
+
+2. Extracting interlinked plain text page pairs
+
+  * Compile the wikiextractor project (tools/build.sh).  The script generates
+    ../lib/wikiextractor.jar.
+   
+  * Extract plain text pages (extractAll.pl) for a set of languages.  Pages are
+    extracted if they have inter-language lints to corresponding pages in 
+    English.  Filenames are the names of the corresponding English articles
+    (both plain text articles and original markup are saved).
+
+  * Pair up the articles in English and L2 (allpairs.pl), saving names of the
+  	pairs in list.txt.
+
+E.g.
+
+cd tools
+perl download.pl languages dumps
+perl unzip.pl languages dumps
+
+bash build.sh
+perl extractAll.pl languages dumps out
+
+perl allpairs.pl en es out/pages out/pagepairs/en-es/pairs &> out/pagepairs/en-es/logs/getpairs.log

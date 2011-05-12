@@ -22,7 +22,7 @@ while(<LANG>){
 }
 
 my $len = $#lang + 1;
-my $en = "af";
+my $en = "en";
 my $curdir = "";
 
 for (my $i = 0; $i < $len; $i++) {
