@@ -22,7 +22,6 @@ while(<LANG>){
 
 my $len = $#lang + 1;
 
-print "Unzipping languages from $lang[$from] to $lang[$to-1]!\n";
 my $name;
 
 for (my $i = 0; $i < $len; $i++) {
